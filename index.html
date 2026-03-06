@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nguyen Duy Thang - Profile</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #111827;
+  display: flex; flex-direction: column;
+  align-items: center; padding: 30px 20px; gap: 48px;
+}
+.slide-label {
+  color: rgba(255,255,255,0.4);
+  font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase;
+  align-self: flex-start; padding-left: 8px;
+  margin-bottom: -36px;
+}
+
+/* ── BASE SLIDE ── */
+.slide {
+  width: 1280px; height: 720px;
+  background: #fff;
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+  border-radius: 6px;
+}
+.accent { height: 5px; background: linear-gradient(90deg,#0d47a1,#1976D2,#64B5F6,#1976D2,#0d47a1); flex-shrink:0; }
+
+/* ── SHARED HEADER ── */
+.hdr {
+  background: linear-gradient(135deg,#071330 0%,#0d2d6e 60%,#1565C0 100%);
+  padding: 18px 56px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-shrink: 0;
+}
+.hdr-left { display:flex; align-items:center; gap:14px; }
+.hdr-num {
+  width:40px; height:40px; border-radius:50%;
+  border:2px solid rgba(255,255,255,0.25);
+  display:flex; align-items:center; justify-content:center;
+  color:rgba(255,255,255,0.6); font-size:14px; font-weight:700;
+}
+.hdr-sub { color:rgba(255,255,255,0.55); font-size:10px; letter-spacing:2px; text-transform:uppercase; margin-bottom:3px; }
+.hdr-name { color:#fff; font-size:20px; font-weight:800; }
+.hdr-badge {
+  background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2);
+  color:#fff; font-size:11px; padding:5px 15px; border-radius:20px; letter-spacing:0.5px;
+}
+
+/* ── FOOTER ── */
+.ftr {
+  background:#071330; padding:10px 56px;
+  display:flex; justify-content:space-between; align-items:center; flex-shrink:0;
+}
+.ftr-l { color:rgba(255,255,255,0.35); font-size:9.5px; letter-spacing:1.5px; }
+.ftr-r { color:rgba(255,255,255,0.25); font-size:9.5px; }
+
+/* ── SHARED UTILS ── */
+.tag {
+  font-size:10.5px; padding:4px 11px; border-radius:20px; font-weight:600;
+  display:inline-block;
+}
+.tag.blue  { background:#E3F2FD; color:#1565C0; border:1px solid #BBDEFB; }
+.tag.green { background:#E8F5E9; color:#2E7D32; border:1px solid #C8E6C9; }
+.tag.org   { background:#FFF3E0; color:#E65100; border:1px solid #FFE0B2; }
+.tag.dark  { background:#E8EAF6; color:#283593; border:1px solid #C5CAE9; }
+.sec-label {
+  font-size:9.5px; font-weight:700; text-transform:uppercase;
+  letter-spacing:2px; color:#90a4ae;
+  padding-bottom:8px; border-bottom:2px solid #e8f0fe; margin-bottom:14px;
+}
+
+/* ══════════════════════════════════════
+   SLIDE 1 — COVER
+══════════════════════════════════════ */
+.s1-body {
+  flex:1; display:flex;
+}
+.s1-left {
+  width:420px; flex-shrink:0;
+  background: linear-gradient(160deg,#0a1f5c 0%,#1565C0 100%);
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:18px;
+  padding:40px 36px;
+  position:relative; overflow:hidden;
+}
+.s1-left::before {
+  content:''; position:absolute;
+  width:300px; height:300px; border-radius:50%;
+  background:rgba(255,255,255,0.04);
+  top:-80px; left:-80px;
+}
+.s1-left::after {
+  content:''; position:absolute;
+  width:200px; height:200px; border-radius:50%;
+  background:rgba(255,255,255,0.04);
+  bottom:-60px; right:-40px;
+}
+.s1-avatar {
+  width:130px; height:130px; border-radius:50%;
+  background:rgba(255,255,255,0.12);
+  border:3px solid rgba(255,255,255,0.3);
+  display:flex; align-items:center; justify-content:center;
+  font-size:56px; position:relative; z-index:1;
+}
+.s1-fullname { color:#fff; font-size:26px; font-weight:900; text-align:center; z-index:1; }
+.s1-vn { color:rgba(255,255,255,0.6); font-size:13px; text-align:center; z-index:1; }
+.s1-divider { width:50px; height:2px; background:rgba(255,255,255,0.3); border-radius:1px; z-index:1; }
+.s1-born {
+  background:rgba(255,255,255,0.12); border-radius:8px;
+  padding:8px 18px; text-align:center; z-index:1;
+}
+.s1-born .lbl { font-size:9px; color:rgba(255,255,255,0.5); letter-spacing:1.5px; text-transform:uppercase; }
+.s1-born .val { font-size:13px; font-weight:700; color:#fff; margin-top:2px; }
+
+.s1-right {
+  flex:1; padding:44px 52px;
+  display:flex; flex-direction:column; gap:22px;
+}
+.s1-headline { font-size:15px; color:#1565C0; font-weight:600; letter-spacing:0.5px; margin-bottom:4px; }
+.s1-desc { font-size:13px; color:#455A64; line-height:1.8; }
+
+.s1-info-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.s1-card {
+  background:#F8FBFF; border:1px solid #E3EEF9; border-radius:10px;
+  padding:14px 16px;
+}
+.s1-card .ic { font-size:22px; margin-bottom:6px; }
+.s1-card .lbl { font-size:9.5px; color:#90a4ae; text-transform:uppercase; letter-spacing:1.2px; margin-bottom:3px; }
+.s1-card .val { font-size:13px; font-weight:700; color:#1a2742; }
+.s1-card .sub { font-size:11px; color:#607D8B; margin-top:1px; }
+
+.s1-tags-wrap { display:flex; flex-wrap:wrap; gap:7px; }
+
+/* ══════════════════════════════════════
+   SLIDE 2 — CAREER TIMELINE
+══════════════════════════════════════ */
+.s2-body { flex:1; display:flex; gap:0; }
+.s2-sidebar {
+  width:300px; flex-shrink:0;
+  background:linear-gradient(180deg,#F0F4FF 0%,#E8F0FE 100%);
+  border-right:1px solid #DCE6F5;
+  padding:32px 28px;
+  display:flex; flex-direction:column; gap:20px;
+}
+.s2-main { flex:1; padding:34px 48px; display:flex; flex-direction:column; gap:6px; }
+
+.tl-wrap { flex:1; display:flex; flex-direction:column; gap:0; }
+.tl-item {
+  display:flex; gap:16px; align-items:flex-start;
+  padding-bottom:20px; position:relative;
+}
+.tl-item::after {
+  content:''; position:absolute;
+  left:71px; top:26px; bottom:0; width:2px;
+  background: linear-gradient(180deg,#1565C0 0%,#BBDEFB 100%);
+}
+.tl-item:last-child::after { display:none; }
+.tl-item:last-child { padding-bottom:0; }
+
+.tl-yr {
+  width:64px; flex-shrink:0;
+  text-align:right; padding-top:2px;
+}
+.tl-yr span {
+  font-size:10px; font-weight:700; color:#1565C0;
+  background:#E3F2FD; padding:3px 7px; border-radius:4px;
+  display:inline-block;
+}
+.tl-dot-wrap {
+  display:flex; flex-direction:column; align-items:center;
+  flex-shrink:0; margin-top:4px;
+}
+.tl-dot {
+  width:12px; height:12px; border-radius:50%;
+  background:#1565C0; border:2px solid #fff;
+  box-shadow:0 0 0 2px #1565C0; flex-shrink:0;
+}
+.tl-body { flex:1; }
+.tl-body strong {
+  font-size:13.5px; font-weight:800; color:#0d1f3c;
+  display:block; margin-bottom:3px;
+}
+.tl-body .co {
+  font-size:11px; font-weight:600; color:#1565C0;
+  margin-bottom:4px; display:block;
+}
+.tl-body p {
+  font-size:11.5px; color:#546E7A; line-height:1.6;
+}
+
+.s2-kpi { background:#F0F4FF; border-radius:10px; padding:14px 16px; }
+.s2-kpi .kpi-lbl { font-size:9.5px; color:#90a4ae; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:10px; font-weight:700; }
+.kpi-row { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+.kpi-row:last-child { margin-bottom:0; }
+.kpi-dot { width:7px; height:7px; border-radius:50%; background:#1565C0; flex-shrink:0; }
+.kpi-row span { font-size:11.5px; color:#1a2742; font-weight:600; }
+.kpi-row small { font-size:10px; color:#78909C; }
+
+/* ══════════════════════════════════════
+   SLIDE 3 — PRODUCTS & TECH
+══════════════════════════════════════ */
+.s3-body { flex:1; display:flex; flex-direction:column; padding:28px 56px 24px; gap:18px; }
+
+.prod-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+.prod-card {
+  border-radius:12px; overflow:hidden;
+  border:1px solid #E3EEF9;
+  box-shadow:0 4px 16px rgba(21,101,192,0.08);
+}
+.prod-header {
+  padding:16px 18px 14px;
+  background:linear-gradient(135deg,#0d47a1,#1976D2);
+}
+.prod-header.green { background:linear-gradient(135deg,#1B5E20,#2E7D32); }
+.prod-header.teal  { background:linear-gradient(135deg,#004D40,#00796B); }
+.prod-icon { font-size:26px; margin-bottom:6px; }
+.prod-name { font-size:16px; font-weight:800; color:#fff; }
+.prod-sub  { font-size:10.5px; color:rgba(255,255,255,0.65); margin-top:2px; }
+.prod-body { padding:14px 18px; background:#fff; }
+.feat-row {
+  display:flex; align-items:flex-start; gap:8px; margin-bottom:8px;
+}
+.feat-row:last-child { margin-bottom:0; }
+.feat-check { color:#1565C0; font-size:12px; flex-shrink:0; margin-top:1px; }
+.feat-row p { font-size:11.5px; color:#455A64; line-height:1.5; }
+.feat-row p strong { color:#1a2742; font-weight:700; }
+
+.impact-row { display:flex; gap:14px; }
+.impact-box {
+  flex:1; border-radius:10px;
+  background:linear-gradient(135deg,#071330,#0d47a1);
+  padding:14px 18px; text-align:center;
+}
+.impact-box .num { font-size:26px; font-weight:900; color:#fff; }
+.impact-box .lbl { font-size:10px; color:rgba(255,255,255,0.65); margin-top:3px; line-height:1.4; }
+
+/* ══════════════════════════════════════
+   SLIDE 4 — BUSINESS ECOSYSTEM & 3T ROLE
+══════════════════════════════════════ */
+.s4-body { flex:1; display:flex; gap:0; }
+.s4-left {
+  flex:1; padding:32px 40px;
+  display:flex; flex-direction:column; gap:18px;
+}
+.s4-right {
+  width:360px; flex-shrink:0;
+  background:linear-gradient(180deg,#F0F4FF,#E8F0FE);
+  border-left:1px solid #DCE6F5;
+  padding:32px 30px;
+  display:flex; flex-direction:column; gap:18px;
+}
+
+.eco-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.eco-card {
+  border-radius:10px; background:#fff;
+  border:1px solid #E3EEF9;
+  box-shadow:0 3px 10px rgba(0,0,0,0.05);
+  overflow:hidden;
+}
+.eco-card-top {
+  height:6px;
+}
+.eco-card-top.blue { background:linear-gradient(90deg,#1565C0,#42A5F5); }
+.eco-card-top.green { background:linear-gradient(90deg,#2E7D32,#66BB6A); }
+.eco-card-top.org { background:linear-gradient(90deg,#E65100,#FFA726); }
+.eco-card-top.purple { background:linear-gradient(90deg,#4527A0,#7E57C2); }
+.eco-card-body { padding:14px 16px; }
+.eco-card-body .ic { font-size:20px; margin-bottom:6px; }
+.eco-card-body .name { font-size:13px; font-weight:800; color:#0d1f3c; margin-bottom:3px; }
+.eco-card-body .desc { font-size:11px; color:#607D8B; line-height:1.5; }
+
+.role-panel {
+  background:linear-gradient(135deg,#071330,#1565C0);
+  border-radius:12px; padding:20px 22px;
+}
+.role-panel .rp-title { font-size:11px; font-weight:700; color:rgba(255,255,255,0.6); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:12px; }
+.role-item {
+  display:flex; gap:10px; align-items:flex-start;
+  margin-bottom:12px;
+}
+.role-item:last-child { margin-bottom:0; }
+.role-item .ri-dot {
+  width:8px; height:8px; border-radius:50%;
+  background:#64B5F6; flex-shrink:0; margin-top:4px;
+}
+.role-item .ri-text strong { font-size:12px; font-weight:700; color:#fff; display:block; margin-bottom:2px; }
+.role-item .ri-text span { font-size:10.5px; color:rgba(255,255,255,0.6); line-height:1.5; }
+
+.vision-box {
+  background:#fff; border-radius:10px;
+  border-left:4px solid #1565C0;
+  padding:14px 16px;
+}
+.vision-box .vb-lbl { font-size:9.5px; color:#90a4ae; text-transform:uppercase; letter-spacing:1.5px; font-weight:700; margin-bottom:6px; }
+.vision-box .vb-text { font-size:12px; color:#37474F; line-height:1.7; font-style:italic; }
+
+.trait-row { display:flex; flex-direction:column; gap:8px; }
+.trait-item {
+  display:flex; gap:10px; align-items:center;
+  background:#fff; border-radius:8px; padding:9px 12px;
+  border:1px solid #E3EEF9;
+}
+.trait-item .ti-icon { font-size:16px; flex-shrink:0; }
+.trait-item .ti-text strong { font-size:12px; font-weight:700; color:#0d1f3c; display:block; }
+.trait-item .ti-text span { font-size:10.5px; color:#78909C; }
+</style>
+</head>
+<body>
+
+<!-- ════════════ SLIDE 1 — COVER ════════════ -->
+<div class="slide-label">Slide 1 / 4 — Introduction</div>
+<div class="slide">
+  <div class="accent"></div>
+  <div class="hdr">
+    <div class="hdr-left">
+      <div class="hdr-num">01</div>
+      <div>
+        <div class="hdr-sub">Vietnamese Technology Partner — Profile Overview</div>
+        <div class="hdr-name">Nguyen Duy Thang · เหงียน ดุย ถัง</div>
+      </div>
+    </div>
+    <div class="hdr-badge">🏢 MIN Software Joint Stock Co. · Vietnam</div>
+  </div>
+
+  <div class="s1-body">
+    <div class="s1-left">
+      <div class="s1-avatar">👨‍💻</div>
+      <div class="s1-fullname">Nguyen Duy Thang</div>
+      <div class="s1-vn">เหงียน ดุย ถัง</div>
+      <div class="s1-divider"></div>
+      <div class="s1-born">
+        <div class="lbl">Date of Birth</div>
+        <div class="val">8 March 1998</div>
+      </div>
+      <div class="s1-born">
+        <div class="lbl">Generation</div>
+        <div class="val">Gen Z — Entrepreneur</div>
+      </div>
+      <div class="s1-born">
+        <div class="lbl">สัญชาติ</div>
+        <div class="val">🇻🇳 สาธารณรัฐสังคมนิยมเวียดนาม</div>
+      </div>
+    </div>
+
+    <div class="s1-right">
+      <div>
+        <div class="s1-headline">ผู้ประกอบการ Tech รุ่นใหม่ · ผู้สร้าง Technology Ecosystem ระดับสากล</div>
+        <div class="s1-desc">
+          Nguyen Duy Thang คือหนึ่งในผู้ประกอบการรุ่น Gen Z ที่ประสบความสำเร็จโดดเด่นในวงการ Software และ Digital Marketing Automation ของเวียดนาม ในฐานะผู้ก่อตั้งและผู้แทนโดยชอบธรรม (Legal Representative) ของ MIN Software Joint Stock Company เขาได้พัฒนาผลิตภัณฑ์ซอฟต์แวร์ที่มีผู้ใช้งานทั่วโลกกว่า 1 ล้านราย และยังขยายธุรกิจสู่ภาคพลังงานสะอาดภายใต้ MIN Group Ecosystem
+        </div>
+      </div>
+
+      <div class="s1-info-grid">
+        <div class="s1-card">
+          <div class="ic">🏢</div>
+          <div class="lbl">บริษัทหลัก</div>
+          <div class="val">MIN Software Joint Stock Co.</div>
+          <div class="sub">Legal Representative & Founder</div>
+        </div>
+        <div class="s1-card">
+          <div class="ic">🌏</div>
+          <div class="lbl">ตลาดที่ดำเนินธุรกิจ</div>
+          <div class="val">Global — 100+ ประเทศ</div>
+          <div class="sub">เวียดนาม · ASEAN · Worldwide</div>
+        </div>
+        <div class="s1-card">
+          <div class="ic">💻</div>
+          <div class="lbl">Product Flagship</div>
+          <div class="val">GemAutomate / GemLogin</div>
+          <div class="sub">No-code Automation Platform</div>
+        </div>
+        <div class="s1-card">
+          <div class="ic">☀️</div>
+          <div class="lbl">ธุรกิจเสริม</div>
+          <div class="val">MIN Solar (MIN Group)</div>
+          <div class="sub">Renewable Energy · Solar & Wind</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sec-label">ความเชี่ยวชาญหลัก</div>
+        <div class="s1-tags-wrap">
+          <span class="tag blue">Software Development</span>
+          <span class="tag blue">No-Code Automation</span>
+          <span class="tag green">Omnichannel Chat Platform</span>
+          <span class="tag green">Anti-Detect Browser Tech</span>
+          <span class="tag org">Tech Ecosystem Builder</span>
+          <span class="tag org">Renewable Energy</span>
+          <span class="tag dark">Multi-Account Management</span>
+          <span class="tag dark">API Integration</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ftr">
+    <div class="ftr-l">3T GROUP CO., LTD. — BOI APPLICATION 2025 · CATEGORY 8.1</div>
+    <div class="ftr-r">SLIDE 1 / 4</div>
+  </div>
+</div>
+
+
+<!-- ════════════ SLIDE 2 — CAREER TIMELINE ════════════ -->
+<div class="slide-label">Slide 2 / 4 — Career & Experience</div>
+<div class="slide">
+  <div class="accent"></div>
+  <div class="hdr">
+    <div class="hdr-left">
+      <div class="hdr-num">02</div>
+      <div>
+        <div class="hdr-sub">Career Journey & Work Experience</div>
+        <div class="hdr-name">Nguyen Duy Thang — ประวัติการทำงาน</div>
+      </div>
+    </div>
+    <div class="hdr-badge">🗂 Professional Timeline</div>
+  </div>
+
+  <div class="s2-body">
+    <div class="s2-sidebar">
+      <div class="sec-label">Key Achievements</div>
+
+      <div class="s2-kpi">
+        <div class="kpi-lbl">ผลลัพธ์ที่โดดเด่น</div>
+        <div class="kpi-row"><div class="kpi-dot"></div><span>1M+ Users</span><small>&nbsp;ทั่วโลก</small></div>
+        <div class="kpi-row"><div class="kpi-dot"></div><span>30M+ Accounts</span><small>&nbsp;ที่ดูแลระบบ</small></div>
+        <div class="kpi-row"><div class="kpi-dot"></div><span>100+ ประเทศ</span><small>&nbsp;ที่ใช้งาน</small></div>
+        <div class="kpi-row"><div class="kpi-dot"></div><span>3+ บริษัท</span><small>&nbsp;ในเครือ MIN Group</small></div>
+      </div>
+
+      <div class="sec-label">Core Skills</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;">
+        <span class="tag blue">Python / Node.js</span>
+        <span class="tag blue">API Development</span>
+        <span class="tag green">Browser Automation</span>
+        <span class="tag green">Mobile Automation</span>
+        <span class="tag org">Product Strategy</span>
+        <span class="tag org">Team Leadership</span>
+      </div>
+
+      <div class="sec-label">ภาษาที่ใช้สื่อสาร</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;">
+        <span class="tag dark">🇻🇳 เวียดนาม (Native)</span>
+        <span class="tag dark">🇬🇧 English (Business)</span>
+      </div>
+    </div>
+
+    <div class="s2-main">
+      <div class="sec-label">ประวัติการทำงานและเส้นทางอาชีพ</div>
+      <div class="tl-wrap">
+
+        <div class="tl-item">
+          <div class="tl-yr"><span>2020–Now</span></div>
+          <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-body">
+            <strong>Founder, Legal Representative & CEO</strong>
+            <span class="co">🏢 Công Ty Cổ Phần Phần Mềm MIN Software · Vietnam</span>
+            <p>ก่อตั้งและบริหาร MIN Software Joint Stock Company สร้าง Technology Ecosystem สำหรับตลาด Digital Marketing อัตโนมัติ วางกลยุทธ์ผลิตภัณฑ์ทั้งหมดและนำทีมพัฒนาระบบ Automation บนแพลตฟอร์ม Facebook, Instagram และ Zalo ผ่าน API อย่างเสถียร</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-yr"><span>2021–Now</span></div>
+          <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-body">
+            <strong>Lead Developer — GemAutomate & GemLogin Platform</strong>
+            <span class="co">💻 MIN Software · Flagship Product Line</span>
+            <p>พัฒนา GemAutomate แพลตฟอร์ม No-code Automation ระดับสากล และ GemLogin Anti-detect Browser เทคโนโลยี Multi-account Management ที่ช่วยปกป้องบัญชี Social Media กว่า 30 ล้านบัญชีทั่วโลก ผ่านเทคนิค Browser Fingerprint Spoofing</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-yr"><span>2022–Now</span></div>
+          <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-body">
+            <strong>Developer — GemPhoneFarm Mobile Automation System</strong>
+            <span class="co">📱 MIN Software · Mobile Platform Division</span>
+            <p>ออกแบบและพัฒนาระบบควบคุมอุปกรณ์มือถือจำนวนมากพร้อมกัน (Phone Farm) สำหรับ Social Automation บน iOS และ Android รองรับการทำงาน 24/7 พร้อมระบบ Remote Control</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-yr"><span>2023–Now</span></div>
+          <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-body">
+            <strong>Founder & Director — MIN Group Ecosystem Co., Ltd. (MIN Solar)</strong>
+            <span class="co">☀️ MIN Group · Renewable Energy Division</span>
+            <p>ขยายระบบนิเวศธุรกิจสู่ภาคพลังงานสะอาด ติดตั้งและผลิตไฟฟ้าจาก Solar & Wind Energy บูรณาการ IT System เพื่อเพิ่มประสิทธิภาพการผลิตและจัดจำหน่ายอุปกรณ์ไฟฟ้าสะอาดระดับอุตสาหกรรม</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="ftr">
+    <div class="ftr-l">3T GROUP CO., LTD. — BOI APPLICATION 2025 · CATEGORY 8.1</div>
+    <div class="ftr-r">SLIDE 2 / 4</div>
+  </div>
+</div>
+
+
+<!-- ════════════ SLIDE 3 — PRODUCTS ════════════ -->
+<div class="slide-label">Slide 3 / 4 — Products & Technology</div>
+<div class="slide">
+  <div class="accent"></div>
+  <div class="hdr">
+    <div class="hdr-left">
+      <div class="hdr-num">03</div>
+      <div>
+        <div class="hdr-sub">Key Products & Technology Innovation</div>
+        <div class="hdr-name">Nguyen Duy Thang — ผลิตภัณฑ์และเทคโนโลยีที่สร้าง</div>
+      </div>
+    </div>
+    <div class="hdr-badge">🚀 Product Portfolio</div>
+  </div>
+
+  <div class="s3-body">
+    <div class="sec-label">ผลิตภัณฑ์หลักภายใต้ MIN Software</div>
+    <div class="prod-grid">
+
+      <div class="prod-card">
+        <div class="prod-header">
+          <div class="prod-icon">⚡</div>
+          <div class="prod-name">GemAutomate</div>
+          <div class="prod-sub">No-code Workflow Automation Platform</div>
+        </div>
+        <div class="prod-body">
+          <div class="feat-row">
+            <div class="feat-check">✦</div>
+            <p><strong>No-code Interface</strong> — ไม่ต้องเขียนโค้ด สร้าง Automation ได้ทันที</p>
+          </div>
+          <div class="feat-row">
+            <div class="feat-check">✦</div>
+            <p><strong>Multistep Workflow</strong> — ระบบลำดับขั้นตอนอัตโนมัติแบบ Drag & Drop</p>
+          </div>
+          <div class="feat-row">
+            <div class="feat-check">✦</div>
+            <p><strong>Multi-platform Support</strong> — Facebook, Instagram, Zalo, TikTok</p>
+          </div>
+          <div class="feat-row">
+            <div class="feat-check">✦</div>
+            <p><strong>API-based</strong> — เสถียร ปลอดภัย ลดความเสี่ยงถูก Ban บัญชี</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-header green">
+          <div class="prod-icon">🛡️</div>
+          <div class="prod-name">GemLogin</div>
+          <div class="prod-sub">Anti-detect Browser — Multi-account Manager</div>
+        </div>
+        <div class="prod-body">
+          <div class="feat-row">
+            <div class="feat-check">✦</div>
+            <p><strong>Browser Fingerprint Spoofing</strong> — ซ่อนตัวตนบัญชีได้อย่างสมบูรณ์</p>
+          </div>
+          <div class="feat-row">
+            <div class="feat-check">✦</div>
+            <p><strong>Multi-account Safe</strong> — บริหาร 100+ บัญชีพร้อมกันโดยไม่โดน Ban</p>
+          </div>
+          <div class="feat-row">
+            <div class="feat-check">✦</div>
+            <p><strong>Proxy Integration</strong> — รองรับ Proxy ทุกประเภทในตัว</p>
+          </div>
+          <div class="feat-row">
+            <div class="feat-check">✦</div>
+            <p><strong>ผู้ใช้งาน 1M+</strong> — ปกป้องบัญชีกว่า 30 ล้านบัญชีทั่วโลก</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-header teal">
+          <div class="prod-icon">📱</div>
+          <div class="prod-name">GemPhoneFarm</div>
+          <div class="prod-sub">Mobile Automation & Remote Control System</div>
+        </div>
+        <div class="prod-body">
+          <div class="feat-row">
+            <div class="feat-check">✦</div>
+            <p><strong>Phone Farm Control</strong> — บริหารมือถือหลายร้อยเครื่องพร้อมกัน</p>
+          </div>
+          <div class="feat-row">
+            <div class="feat-check">✦</div>
+            <p><strong>iOS & Android</strong> — รองรับทั้งสองแพลตฟอร์มในระบบเดียว</p>
+          </div>
+          <div class="feat-row">
+            <div class="feat-check">✦</div>
+            <p><strong>Remote Management</strong> — ควบคุมจากระยะไกลผ่าน Web Interface</p>
+          </div>
+          <div class="feat-row">
+            <div class="feat-check">✦</div>
+            <p><strong>24/7 Automation</strong> — ระบบทำงานต่อเนื่องตลอดเวลา</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="impact-row">
+      <div class="impact-box">
+        <div class="num">1M+</div>
+        <div class="lbl">Active Users Worldwide</div>
+      </div>
+      <div class="impact-box">
+        <div class="num">30M+</div>
+        <div class="lbl">Accounts Protected Globally</div>
+      </div>
+      <div class="impact-box">
+        <div class="num">100+</div>
+        <div class="lbl">Countries with Users</div>
+      </div>
+      <div class="impact-box">
+        <div class="num">3</div>
+        <div class="lbl">Major Software Products Launched</div>
+      </div>
+      <div class="impact-box">
+        <div class="num">Gen Z</div>
+        <div class="lbl">Youngest Tech Founder in CLMV Region</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ftr">
+    <div class="ftr-l">3T GROUP CO., LTD. — BOI APPLICATION 2025 · CATEGORY 8.1</div>
+    <div class="ftr-r">SLIDE 3 / 4</div>
+  </div>
+</div>
+
+
+<!-- ════════════ SLIDE 4 — ECOSYSTEM & 3T ROLE ════════════ -->
+<div class="slide-label">Slide 4 / 4 — Business Ecosystem & Role in 3T Group</div>
+<div class="slide">
+  <div class="accent"></div>
+  <div class="hdr">
+    <div class="hdr-left">
+      <div class="hdr-num">04</div>
+      <div>
+        <div class="hdr-sub">Business Ecosystem & Role in 3T Group</div>
+        <div class="hdr-name">Nguyen Duy Thang — ระบบนิเวศธุรกิจและบทบาทใน 3T Group</div>
+      </div>
+    </div>
+    <div class="hdr-badge">🤝 Partnership & Vision</div>
+  </div>
+
+  <div class="s4-body">
+    <div class="s4-left">
+      <div>
+        <div class="sec-label">ระบบนิเวศธุรกิจ MIN Group Ecosystem</div>
+        <div class="eco-grid">
+          <div class="eco-card">
+            <div class="eco-card-top blue"></div>
+            <div class="eco-card-body">
+              <div class="ic">💻</div>
+              <div class="name">MIN Software Joint Stock Co.</div>
+              <div class="desc">บริษัทแม่ · พัฒนา Automation Software ระดับสากล GemAutomate, GemLogin, GemPhoneFarm · ผู้ใช้ 1M+ ทั่วโลก</div>
+            </div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-card-top green"></div>
+            <div class="eco-card-body">
+              <div class="ic">☀️</div>
+              <div class="name">MIN Group Ecosystem Co., Ltd.</div>
+              <div class="desc">MIN Solar — ธุรกิจพลังงานสะอาด Solar & Wind Energy ผสาน IT System เพิ่มประสิทธิภาพอุตสาหกรรมพลังงาน</div>
+            </div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-card-top org"></div>
+            <div class="eco-card-body">
+              <div class="ic">🤖</div>
+              <div class="name">3T Group Co., Ltd. (Thailand)</div>
+              <div class="desc">Joint Venture ไทย-เวียดนาม · พัฒนา AI Secretary และ Omnichannel Chat Hub สำหรับตลาด B2B / B2G / B2C</div>
+            </div>
+          </div>
+          <div class="eco-card">
+            <div class="eco-card-top purple"></div>
+            <div class="eco-card-body">
+              <div class="ic">🌐</div>
+              <div class="name">Technology Transfer Network</div>
+              <div class="desc">ถ่ายทอดเทคโนโลยี Omnichannel Chat Hub และ Automation Tools จากเวียดนามสู่ทีมพัฒนาไทย</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vision-box">
+        <div class="vb-lbl">วิสัยทัศน์การบริหาร (Management Philosophy)</div>
+        <div class="vb-text">"สร้างระบบนิเวศทางเทคโนโลยีที่ยั่งยืน (Sustainable Technology Ecosystem) โดยใช้ IT เป็นแกนกลางในการเพิ่มประสิทธิภาพให้กับทุกภาคอุตสาหกรรม ตั้งแต่ Digital Marketing จนถึงพลังงานสะอาด"</div>
+      </div>
+    </div>
+
+    <div class="s4-right">
+      <div class="sec-label">บทบาทใน 3T Group Co., Ltd.</div>
+      <div class="role-panel">
+        <div class="rp-title">Technology Partner — CTO & Co-Founder</div>
+        <div class="role-item">
+          <div class="ri-dot"></div>
+          <div class="ri-text">
+            <strong>นำทีมพัฒนา Omnichannel Chat Hub</strong>
+            <span>ถ่ายทอดเทคโนโลยีจาก MIN Software สู่ Platform ของ 3T Group ครอบคลุม LINE, Facebook, WhatsApp, Zalo</span>
+          </div>
+        </div>
+        <div class="role-item">
+          <div class="ri-dot"></div>
+          <div class="ri-text">
+            <strong>IP Licensing — Core Technology</strong>
+            <span>ให้สิทธิ์การใช้งานเทคโนโลยี Automation & Chat Platform มูลค่า 3.0 ล้านบาท (BOI Sec. 5)</span>
+          </div>
+        </div>
+        <div class="role-item">
+          <div class="ri-dot"></div>
+          <div class="ri-text">
+            <strong>Technology Transfer Training</strong>
+            <span>ฝึกอบรมทีมพัฒนาไทยด้าน API Integration, Automation Framework และ AI Integration</span>
+          </div>
+        </div>
+        <div class="role-item">
+          <div class="ri-dot"></div>
+          <div class="ri-text">
+            <strong>ผู้ถือหุ้น 49% (Vietnamese Side)</strong>
+            <span>ตัวแทนฝ่ายเวียดนามในโครงสร้าง JV 51% Thai / 49% Vietnamese</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec-label" style="margin-top:4px;">จุดแข็งที่นำมาสู่ 3T Group</div>
+      <div class="trait-row">
+        <div class="trait-item">
+          <div class="ti-icon">⚡</div>
+          <div class="ti-text">
+            <strong>Proven Automation Technology</strong>
+            <span>เทคโนโลยีที่ผ่านการพิสูจน์จากผู้ใช้ 1M+ ทั่วโลก</span>
+          </div>
+        </div>
+        <div class="trait-item">
+          <div class="ti-icon">🌏</div>
+          <div class="ti-text">
+            <strong>CLMV Market Network</strong>
+            <span>เครือข่ายธุรกิจครอบคลุมเวียดนามและภูมิภาค CLMV</span>
+          </div>
+        </div>
+        <div class="trait-item">
+          <div class="ti-icon">🚀</div>
+          <div class="ti-text">
+            <strong>Agile Development Capability</strong>
+            <span>ทีม Dev คนรุ่นใหม่ที่พัฒนาได้เร็ว รองรับ Scalability</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ftr">
+    <div class="ftr-l">3T GROUP CO., LTD. — BOI APPLICATION 2025 · CATEGORY 8.1</div>
+    <div class="ftr-r">SLIDE 4 / 4</div>
+  </div>
+</div>
+
+</body>
+</html>
